@@ -1,11 +1,11 @@
 import {View, TextInput, TextInputProps, StyleSheet} from 'react-native';
 
-export function Campos({...rest}:TextInputProps){
+export function Campo({...rest}:TextInputProps){
     return(
         <View>
             <TextInput style={styles.cmp} {...rest}/>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({

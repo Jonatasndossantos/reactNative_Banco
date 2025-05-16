@@ -1,8 +1,8 @@
 
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import {useState} from 'react';
-import {Campos} from '@/components/Campos';
-import { ClienteDatabase, useClienteDataBase } from '@/database/useClienteDataBase';
+import {Campo} from '@/components/Campos';
+import { ClienteDataBase, useClienteDataBase } from '@/database/useClienteDataBase';
 
 import {useNavigation} from 'expo-router'
 
@@ -11,7 +11,7 @@ export default function Index(){
     const [nome, setNome] = useState("")
     const [telefone, setTelefone] = useState("")
     const [endereco, setEndereco] = useState("")
-    const [cliente, setCliente] = useState<ClienteDatabase[]>()
+    const [cliente, setCliente] = useState<ClienteDataBase[]>()
     const clienteDatabase = useClienteDataBase();
 
     const navigation = useNavigation()
@@ -29,9 +29,9 @@ export default function Index(){
 
     return (
         <View style={styles.container}>
-            <Campos placeholder='Nome' onChangeText={setNome} value={nome}/>
-            <Campos placeholder='Telefone' onChangeText={setTelefone} value={telefone}/>
-            <Campos placeholder='Endereco' onChangeText={setEndereco} value={endereco}/>
+            <Campo placeholder='Nome' onChangeText={setNome} value={nome}/>
+            <Campo placeholder='Telefone' onChangeText={setTelefone} value={telefone}/>
+            <Campo placeholder='Endereco' onChangeText={setEndereco} value={endereco}/>
             <Button title="Cadastrar" onPress={create}/>
             <Button title='Consultar' onPress={() => navigation.navigate("Consultar")}/>
         </View>
